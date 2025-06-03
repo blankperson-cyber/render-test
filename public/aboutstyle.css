@@ -1,0 +1,188 @@
+.mainsection {
+    display: flex;
+    align-items: center; 
+    justify-content: flex-start; 
+    text-align: left;
+    width: 100%;
+    position: relative;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+.mainsection p {
+    color: rgb(245, 252, 255);
+    font-size: 11rem; 
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 1rem;
+    max-width: 1200px; 
+    z-index: 2;
+    margin: auto 0;
+    text-shadow: 0px 4px 10px rgba(255, 255, 255, 0.5);
+    animation: float 3s ease-in-out infinite,slideIn 1s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+@keyframes sliding {
+
+    0%,
+    15% {
+        background-image: url('Data/other/main.jpg');
+    }
+
+    16%,
+    32% {
+        background-image: url('Data/other/main3.jpg');
+    }
+
+    33%,
+    48% {
+        background-image: url('Data/other/main.png');
+    }
+
+    49%,
+    66% {
+        background-image: url('Data/other/main4.jpg');
+    }
+
+    67%,
+    82% {
+        background-image: url('Data/other/main5.jpg');
+    }
+
+    83%,
+    100% {
+        background-image: url('Data/other/main6.jpg');
+    }
+}
+
+/* Main Grid Layout */
+.about-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    padding: 4rem;
+    background-color: #ffffff;
+    background-image: url('https://www.transparenttextures.com/patterns/geometry.png');
+    background-attachment: fixed;
+    animation: scrollPattern 10s linear infinite;
+}
+
+/* Background Animation */
+@keyframes scrollPattern {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 0 100px;
+    }
+}
+
+/* Full-width title (NO HOVER) */
+.about-container .title {
+    grid-column: span 2;
+    text-align: center;
+    padding-bottom: 2rem;
+    animation: scrollPattern 10s linear infinite,appear .5s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
+.about-container h1 {
+    font-size: 3rem;
+    color: #12588a;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+/* Full-width description */
+.about-container .Discription {
+    grid-column: span 2; /* Makes it take the full row */
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 1.8;
+    animation: scrollPattern 10s linear infinite,appear .5s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
+/* Mission & Research Areas Side by Side */
+.about-container .mission,
+.about-container .research {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    animation: scrollPattern 10s linear infinite,appear .5s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
+/* Remove Hover from Title, Keep Hover for Other Sections */
+.about-container .title:hover {
+    transform: none; 
+    box-shadow: none;
+}
+
+/* Hover Effects (ONLY on Mission, Research, and Description) */
+.about-container .Discription:hover,
+.about-container .mission:hover,
+.about-container .research:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Text Styling */
+.about-container h2 {
+    font-size: 3rem;
+    color: #0e4b6c;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    text-align: center;
+    animation: scrollPattern 10s linear infinite,appear .5s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
+.about-container p,
+.about-container ul {
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 1.8;
+    letter-spacing: 1px;
+    color: #333;
+    animation: scrollPattern 10s linear infinite,appear .5s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
+/* List Styling */
+.about-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.about-container ul li {
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    font-size: 1.9rem;
+}
+
+.about-container ul li::before {
+    content: "•";
+    color: #12588a;
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+}
+

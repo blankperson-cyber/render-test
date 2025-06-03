@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LISI | Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=widgets" />
+    <link rel="preload" as="image" href="Data/other/main.jpg">
+    <link rel="preload" as="image" href="Data/other/main.png">
+    <link rel="preload" as="image" href="Data/other/main3.jpg">
+    <link rel="preload" as="image" href="Data/other/main4.jpg">
+    <link rel="preload" as="image" href="Data/other/main5.jpg">
+    <link rel="preload" as="image" href="Data/other/main6.jpg">
+</head>
+
+<body>
+    <div id="loading-screen">
+        <div class="loader"></div>
+    </div>
+   
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="Data/LOGO/LOGO MODERN1.png"></a>
+        </div>
+        <div class="rightlist">
+            <ul class="access" type="none">
+                <li id="btn_search" class="searchicon">SEARCH <i class='bx bx-search-alt'></i></li>
+                <li id="btn_menu" class="menuicon">MENU <i class='bx bx-menu'></i></li>
+            </ul>
+        </div>
+    </header>
+
+    <nav id="nav">
+        <div class="navmenu">
+            <ul type="none">
+                <li> HOME <i class='bx bx-arrow-back'></i></li>
+                <li>ABOUT <i class='bx bx-arrow-back'></i></li>
+                <li class="has-submenu"> TEAMS <i class='bx bx-arrow-back'></i> </li>
+                <li>Dissemination <i class='bx bx-arrow-back'></i></li>
+                <li>Conventions <i class='bx bx-arrow-back'></i></li>
+                <li>Other Activities <i class='bx bx-arrow-back'></i></li>
+            </ul>
+        </div>
+        <div class="othermenus">
+            <div id="btn_x" class="closemenu">
+                <i class='bx bx-x'></i>
+            </div>
+            <div class="langmenu">
+                <ul type="none">
+                    <li><a href="?lang=en"> English </a></li>
+                    <li><a href="?lang=ar">Arabic</a></li>
+                    <li><a href="?lang=fr">Frensh</a></li>
+                </ul>
+            </div>
+            <div class="quickaccess">
+                <ul type="none">
+                    <li data-target="#news">News </li>
+                    <li data-target="#current-labs">Labs </li>
+                    <li>Teams</li>
+                    <li data-target="#footer">Credits </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="searchmenu" class="searchmenu">
+        <div class="searchbox">
+            <input type="text" placeholder="Look For Anything">
+            <i class='bx bx-search-alt'></i>
+        </div>
+        <div id="btn_xs" class="closesearch">
+            <i class='bx bx-x'></i>
+        </div>
+    </div>
+
+    <div class="mainsection">
+        <p class="title">LISI</p>
+        <p class="presentation">Lisi is a university web application developed in 2025 as part of a project aimed at enhancing research visibility </p>
+        <div class="EXPLORE">
+            <a href="#news">EXPLORE MORE <i class='bx bxs-chevrons-down'></i></a>
+            <a href="login.html">LOGIN IN <i class='bx bxs-user'></i></a>
+        </div>
+    </div>
+
+    <div class="news-section">
+        <div id="news" class="news-header">Latest News</div>
+        <div class="news-container">
+            <button class="nav-btn prev-btn">❮</button>
+            <div class="news-wrapper">
+                <div class="news-slider">
+                    <article class="news-item" data-index="0">
+                        <img src="Data/news/what-is-the-internet-of-things-iot.png" alt="News">
+                        <h3>Breaking: AI Updates</h3>
+                        <p>Feb 28, 2025</p>
+                        <div class="news-details">AI is transforming the world with new innovations in machine learning and automation.</div>
+                    </article>
+                    <article class="news-item" data-index="1">
+                        <img src="Data/news/AI.jpg" alt="News">
+                        <h3>Web Dev Trends</h3>
+                        <p>Feb 27, 2025</p>
+                        <div class="news-details">Discover the latest trends in web development, including AI-powered designs.</div>
+                    </article>
+                    <article class="news-item" data-index="2">
+                        <img src="Data/news/test.jfif" alt="News">
+                        <h3>Cybersecurity Alert</h3>
+                        <p>Feb 26, 2025</p>
+                        <div class="news-details">Hackers are using AI to create advanced phishing attacks. Stay safe online.</div>
+                    </article>
+                    <article class="news-item" data-index="3">
+                        <img src="Data/news/images.jfif" alt="News">
+                        <h3>Tech Innovations</h3>
+                        <p>Feb 25, 2025</p>
+                        <div class="news-details">New breakthrough in quantum computing is changing the tech industry.</div>
+                    </article>
+                    <article class="news-item" data-index="4">
+                        <img src="Data/news/what-is-the-internet-of-things-iot.png" alt="News">
+                        <h3>New AI Models</h3>
+                        <p>Feb 24, 2025</p>
+                        <div class="news-details">AI models are now surpassing human-level performance in various tasks.</div>
+                    </article>
+                </div>
+            </div>
+            <button class="nav-btn next-btn">❯</button>
+        </div>
+    </div>
+    <div id="current-labs" class="labs-section">
+        <h2 class="labs-title">Our Labs</h2>
+        <div class="labs-container">
+            <article class="labs-item">
+                <img src="Data/labs/lab-ai.jpg" alt="labs Image">
+                <div class="labs-content">
+                    <h3>New Research Collaboration</h3>
+                    <p class="labs-date">February 19, 2025</p>
+                    <p>Our university has partnered with top AI labs to advance machine learning research.</p>
+                    
+                </div>
+            </article>
+            <article class="labs-item">
+                <img src="Data/labs/iot lab.jpg" alt="labs Image">
+                <div class="labs-content">
+                    <h3>Upcoming Conference on Robotics</h3>
+                    <p class="labs-date">March 5, 2025</p>
+                    <p>Join us for an exciting conference featuring world-renowned robotics experts.</p>
+                    
+                </div>
+            </article>
+        </div>
+
+        <div class="labs-container">
+            <article class="labs-item">
+                <img src="Data/labs/cb lab.webp" alt="labs Image">
+                <div class="labs-content">
+                    <h3>New Research Collaboration</h3>
+                    <p class="labs-date">February 19, 2025</p>
+                    <p>Our university has partnered with top AI labs to advance machine learning research.</p>
+                  
+                </div>
+            </article>
+            <article class="labs-item">
+                <img src="Data/labs/4  lab.png" alt="labs Image">
+                <div class="labs-content">
+                    <h3>Upcoming Conference on Robotics</h3>
+                    <p class="labs-date">March 5, 2025</p>
+                    <p>Join us for an exciting conference featuring world-renowned robotics experts.</p>
+                    
+                </div>
+            </article>
+        </div>
+    </div>
+    
+    <div class="teams-container">
+        <div class="teams_title">Our Teams</div>
+        <div class="team-box" id="team-container">
+            <div id="team-selection">
+                <h2>Select a Team</h2>
+                <div class="teams-list">
+                    <label class="team-item">
+                        <input type="radio" name="team" value="alpha" data-name="Team Alpha" data-date="2024-01-15" data-description="A team focused on AI development." data-link="team_alpha.html">
+                        <img src="Data/labs/4  lab.png" alt="Team Alpha">
+                        <div class="team-content">
+                            <span class="team-name">Team Alpha</span>
+                            <p class="team-date">Created on: January 15, 2024</p>
+                        </div>
+                    </label>
+
+                    <label class="team-item">
+                        <input type="radio" name="team" value="beta" data-name="Team Beta" data-date="2023-11-20" data-description="Experts in Web and Mobile Apps." data-link="team_beta.html">
+                        <img src="Data/labs/lab-ai.jpg" alt="Team Beta">
+                        <div class="team-content">
+                            <span class="team-name">Team Beta</span>
+                            <p class="team-date">Created on: November 20, 2023</p>
+                        </div>
+                    </label>
+                </div>
+
+
+
+                <div class="teams-list">
+                    <label class="team-item">
+                        <input type="radio" name="team" value="alpha" data-name="Team Alpha" data-date="2024-01-15" data-description="A team focused on AI development." data-link="team_alpha.html">
+                        <img src="Data/labs/cb lab.webp" alt="Team Alpha">
+                        <div class="team-content">
+                            <span class="team-name">Team Alpha</span>
+                            <p class="team-date">Created on: January 15, 2024</p>
+                        </div>
+                    </label>
+
+                    <label class="team-item">
+                        <input type="radio" name="team" value="beta" data-name="Team Beta" data-date="2023-11-20" data-description="Experts in Web and Mobile Apps." data-link="team_beta.html">
+                        <img src="Data/labs/iot lab.jpg" alt="Team Beta">
+                        <div class="team-content">
+                            <span class="team-name">Team Beta</span>
+                            <p class="team-date">Created on: November 20, 2023</p>
+                        </div>
+                    </label>
+                </div>
+
+                <button class="action-button" id="confirm-btn" onclick="showTeamInfo()" disabled>Show Details</button>
+
+            </div>
+          
+            <div id="team-info">
+                <h2 id="team-title"></h2>
+                <img src="#">
+                <p id="team-date"></p>
+                <p id="team-description"></p>
+                <div class="info-buttons">
+                    <button class="action-button" onclick="goBack()">Back</button>
+                    <a id="team-link" class="action-button" href="#" target="_blank">View More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   <!-- FOOTER -->
+   <div class="footer_container" id="footer">
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-top">
+                <div class="whitelogo">
+                    <img src="Data/LOGO/logowhite.png" alt="University Labs Logo">
+                </div>
+                <div class="footer-columns">
+                    <div class="footer-column">
+                        <strong>Labs</strong>
+                        <a href="#">AI Lab</a>
+                        <a href="#">Robotics Lab</a>
+                        <a href="#">Cybersecurity Lab</a>
+                        <a href="#">Data Science Lab</a>
+                    </div>
+                    <div class="footer-column">
+                        <strong>Resources</strong>
+                        <a href="#">Publications</a>
+                        <a href="#">Projects</a>
+                        <a href="#">Collaborations</a>
+                        <a href="#">Events</a>
+                    </div>
+                    <div class="footer-column">
+                        <strong>Support</strong>
+                        <a href="#">Contact</a>
+                        <a href="#">Help Center</a>
+                        <a href="#">Community</a>
+                    </div>
+                    <div class="footer-column">
+                        <strong>University</strong>
+                        <a href="#">About</a>
+                        <a href="#">News</a>
+                        <a href="#">Careers</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2025 University Labs. All rights reserved.</span>
+            <div class="footer-links">
+                <a href="#">Terms</a> | <a href="#">Privacy</a>
+            </div>
+            <div class="footer-social">
+                <a href="#"><i class='bx bxl-facebook'></i></a>
+                <a href="#"><i class='bx bxl-instagram-alt' ></i></a>
+                <a href="#"><i class='bx bxl-vk' ></i></a>
+            </div>
+        </div>
+    </footer>
+</div>
+
+
+    <script src="main.js"></script>
+</body>
+</html>

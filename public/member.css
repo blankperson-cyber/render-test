@@ -1,0 +1,244 @@
+/* 🌟 General Styling */
+header {
+    background-color: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+header .goback a {
+    text-decoration: none;
+}
+
+header .goback a button {
+    background-color: transparent;
+    padding: 1.3rem 3.8rem;
+    color: #275B81;
+    font-family: "Advent Pro", sans-serif !important;
+    font-size: 2.3rem;
+    font-weight: 700;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    border: none;
+    letter-spacing: 3px;
+}
+
+header .goback a button:hover {
+    transform: scale(1.03);
+    color: #18669d;
+}
+/* 🔥 Container now respects the header */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 100px);
+    width: 100%;
+    background: #f4f4f4;
+    padding-top: 30px;
+}
+
+.profile-card {
+    width: 95%;
+    height: auto;
+    background: white;
+    padding: 40px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    transition: 0.3s ease-in-out;
+    background-image: url(http://www.transparenttextures.com/patterns/lined-paper.png);
+}
+.member-info-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    background: #d1e7fd;
+    padding: 1.2rem;
+    width: 100%;
+    border-radius: 10px;
+    transition: 0.3s ease-in-out;
+}
+
+.member-info-title:hover {
+    background: #b0d4f5;
+    color: #000;
+}
+
+/* 🎭 Profile Image + Name Section */
+.profile-image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    padding: 1rem;
+}
+
+/* 📸 Profile Image */
+.profile-img {
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 6px solid #0077b6;
+    transition: transform 0.3s ease-in-out;
+}
+
+.profile-img:hover {
+    transform: scale(1.1);
+}
+
+/* 🎭 Name Styling */
+.profile-image-container h2 {
+    font-size: 45px;
+    color: #222;
+    margin-bottom: 5px;
+    text-align: center;
+    transition: color 0.3s ease-in-out;
+}
+
+.profile-image-container h2:hover {
+    color: #0077b6;
+}
+
+/* 👑 Role Styling */
+.member-role {
+    font-size: 22px;
+    font-weight: bold;
+    color: #555;
+    background: #ffe599;
+    padding: 8px 20px;
+    border-radius: 8px;
+    text-align: center;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.member-role:hover {
+    background: #ffcc33;
+    color: #333;
+}
+
+/* 📜 Profile Content */
+.profile-content {
+    flex: 2;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* 🏫 School, Grade, Diploma, Major in a Row */
+.profile-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.profile-row p {
+    font-size: 20px;
+    font-weight: bold;
+    background: #e8f0fe;
+    padding: 14px 22px;
+    border-radius: 8px;
+    text-align: center;
+    flex: 1;
+    transition: 0.3s ease-in-out;
+}
+
+.profile-row p:hover {
+    background: #c7e0ff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 👫 Gender & Date of Birth Row */
+.personal-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    width: 100%;
+}
+
+.personal-info p {
+    font-size: 20px;
+    font-weight: bold;
+    background: #f7e6ff;
+    padding: 14px 22px;
+    border-radius: 8px;
+    text-align: center;
+    flex: 1;
+    transition: 0.3s ease-in-out;
+}
+
+.personal-info p:hover {
+    background: #f0c6ff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 🔹 Google Scholar Section */
+.google-scholar {
+    background: #e0f2f1;
+    padding: 16px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    width: 100%;
+    transition: 0.3s ease-in-out;
+}
+
+.google-scholar:hover {
+    background: #b2dfdb;
+    color: #005f5f;
+}
+
+/* 📊 Stats Section */
+.stats {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.stats div {
+    background: #e0e0e0;
+    padding: 16px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    flex: 1;
+    max-width: 220px;
+    transition: 0.3s ease-in-out;
+}
+
+.stats div:hover {
+    background: #bfbfbf;
+    transform: scale(1.05);
+}
+
+/* 🎯 Highlighted Team Section - Now inside the card */
+.team-info {
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    background: #0077b6;
+    padding: 16px;
+    border-radius: 10px;
+    text-align: center;
+    width: fit-content;
+    align-self: center;
+    margin-top: 25px;
+    transition: 0.3s ease-in-out;
+}
+
+.team-info:hover {
+    background: #005f99;
+}

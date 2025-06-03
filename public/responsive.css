@@ -1,0 +1,1040 @@
+
+@media (max-width: 768px) {
+  
+    header {
+       position: sticky;
+       top: 0;
+       z-index: 99;
+       background-color:white;
+       padding: 1rem;
+       padding: 1rem 1rem 1rem 2rem !important;
+
+    }
+    header .logo img {
+        width: 14rem;
+        height: 3.5rem;
+    }
+   
+    .mobile-nav {
+        display: block;
+        position: relative;
+        background: #f8f8f800;
+        padding: 10px;
+    }
+
+    .mobile-nav .menu-open-close {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 1000;
+        color: #24577b;
+
+    }
+
+    .mobile-nav .menu-open-close i {
+        transition: opacity 0.3s ease-in-out;
+        font-size: 2rem;
+
+    }
+
+    #menuicon,
+    #xicon {
+        right: 20px;
+        position: absolute;
+        cursor: pointer;
+
+    }
+
+    #xicon {
+        font-size: 3rem;
+        display: none;
+        opacity: 0;
+    }
+
+    .menu-active .menu-open-close i.bx-menu-alt-right {
+        opacity: 0;
+    }
+
+    .mobile-nav .menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100% !important;
+        height: 100vh;
+        background-color: whitesmoke;
+        color: #24577b;
+        padding: 20px 0;
+        display: none;
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        z-index: 9999;
+        overflow-y: auto;
+    }
+
+    /* Close button inside the menu */
+    .mobile-nav .menu .menu-close {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 32px;
+        cursor: pointer;
+        color: white;
+    }
+
+    .mobile-nav .menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 50px 0 0 0;
+        text-align: center !important;
+    }
+
+    .mobile-nav .menu ul a{
+        text-decoration: none;
+        color: #24577b;
+
+    }
+
+    .mobile-nav .menu ul li {
+        padding: 20px;
+        border-bottom: 2px dashed #a7b1b7;
+        cursor: pointer;
+        font-size: 20px;
+        font-weight: 700;
+        transition: all .3s ease-in-out;
+    }
+
+    .mobile-nav .menu ul li:hover {
+        background: #E5EEF2;
+        transform: scale(1.03);
+    }
+  
+    .menu-active .menu {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    header .location,
+    header .login {
+        display: none;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .top-bar {
+        display: none;
+    }
+
+    .mainsection {
+       
+        align-items:flex-end !important;
+        justify-content:center !important; 
+        text-align:center;
+    }
+   
+    .mainsection p{
+        font-size: 6rem !important;
+    line-height: 1.5 !important;
+    letter-spacing: 0.6rem !important;
+    }
+   
+    .firstsection h1 {
+        font-size:1.4rem;
+        letter-spacing: 2px;
+    }
+    
+    .firstsection .Discription {
+        font-size: 1rem;
+    }
+  
+    .news-item{
+        width: 75vw !important;
+        height: 80vh !important;
+    }
+    .news-item.active {
+        width: 75vw !important;
+        height: 80vh !important;
+    }
+    .nav-btn{
+        opacity: 0.6;
+    }
+    .labs-container {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 1.5rem !important; /* Adds space between items */
+        height: auto !important; /* Fixes items getting stuck */
+        overflow: visible !important;
+    }
+
+    .labs-item {
+        width: 100% !important;
+        max-width: 400px !important; /* Prevents excessive width */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        background: white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        position: relative !important; /* Prevents stacking issues */
+    }
+
+    .labs-item img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 8px 8px 0 0;
+    }
+
+    .labs-content {
+        width: 100%;
+        text-align: center;
+        padding: 1rem;
+    }
+        .teams_title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+    
+        #team-selection h2 {
+            font-size: 1.5rem;
+            padding: 1rem;
+        }
+    
+        .teams-list {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+    
+        .team-item {
+            font-size: 1.2rem;
+            padding: 1.5rem;
+        }
+    
+        .team-item img {
+            width: 70px;
+            height: 70px;
+        }
+    
+        .team-content {
+            font-size: 1.2rem;
+        }
+        .whitelogo img {
+           display: none;
+        }
+        
+        .footer-top {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+    
+        .footer-columns {
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+    
+        .footer-column {
+            text-align: center;
+        }
+    
+        .footer-bottom {
+            flex-direction: column;
+            gap: 10px;
+        }
+        /*about page*/
+        .about-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+    
+        .about-container .title,
+        .about-container .Discription,
+        .about-container .mission,
+        .about-container .research {
+            grid-column: span 1;
+            width: 100%;
+            padding: 1.5rem;
+        }
+    
+        .about-container h1,
+        .about-container h2 {
+            font-size: 2.5rem;
+        }
+    
+        .about-container p,
+        .about-container ul {
+            font-size: 1.8rem;
+        }
+        /*login/signup pages */
+        header .goback {
+            font-size: 1rem;
+          }
+        .container {
+            flex-direction: column;
+            min-height: auto;
+          }
+        
+          .login-section, .notes-section {
+            padding: 2rem;
+            border-right: n
+    }
+    /*team page*/
+    .team-page {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px;
+    }
+
+    .team-general-about {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .team-general, .team-description, .team-goals, .team-members {
+        width: 100%;
+        padding: 30px;
+        text-align: center;
+    }
+
+    .team-members {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .member-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+    }
+
+    .photo {
+        width: 140px;
+        height: 140px;
+        margin-bottom: 20px;
+    }
+
+    .member-info {
+        text-align: center;
+    }
+
+    .more-details {
+        padding: 15px 30px;
+        font-size: 1.6rem;
+    }
+
+    .team-goals h3, .team-members h2 {
+        font-size: 3rem;
+    }
+
+    .team-general h2, .team-description h3 {
+        font-size: 2.8rem;
+    }
+
+    .team-general li, .team-goals li {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 1170px) {
+    header {
+       position: sticky;
+       top: 0;
+       z-index: 99;
+       background-color:white;
+       padding: 1rem;
+       padding: 1rem 1rem 1rem 2rem !important;
+
+    }
+    header .logo img {
+        width: 14rem;
+        height: 4rem;
+    }
+    
+    .mobile-nav {
+        display: block;
+        position: relative;
+        background: #f8f8f800;
+        padding: 10px;
+    }
+
+    .mobile-nav .menu-open-close {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 1000;
+        color: #24577b;
+
+    }
+
+    .mobile-nav .menu-open-close i {
+        transition: opacity 0.3s ease-in-out;
+        font-size: 2rem;
+
+    }
+
+    #menuicon,
+    #xicon {
+        right: 20px;
+        position: absolute;
+        cursor: pointer;
+
+    }
+
+    #xicon {
+        font-size: 3rem;
+        display: none;
+        opacity: 0;
+    }
+
+    .menu-active .menu-open-close i.bx-menu-alt-right {
+        opacity: 0;
+    }
+
+    /* Full-screen mobile menu */
+    .mobile-nav .menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 30%;
+        height: 100vh;
+        background-color: whitesmoke;
+        text-decoration: none;
+        color: #24577b;
+        padding: 20px 0;
+        display: none;
+        opacity: 0;
+        transform: translateX(100%); /* Move off-screen to the right */
+        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        z-index: 9999;
+        overflow-y:auto;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+
+    }
+    
+
+    /* Close button inside the menu */
+    .mobile-nav .menu .menu-close {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 32px;
+        cursor: pointer;
+        color: white;
+    }
+
+    .mobile-nav .menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 50px 0 0 0;
+        text-align: center;
+    }
+    .mobile-nav .menu ul li a {
+        text-decoration: none;
+        color: #24577b;
+        width: 100%;
+        display: flex;
+        justify-content: flex-start; /* Align text to the right */
+        align-items: center;
+        gap: 15px; /* Space between icon and text */
+    }
+    
+    .mobile-nav .menu ul li i {
+        font-size: 22px;
+        margin-right: auto; /* Pushes text to the right */
+    }
+    .mobile-nav .menu ul li {
+        display: flex;
+        justify-content: space-between; /* Creates wide space between icon & text */
+        align-items: center;
+        padding: 15px 20px;
+        border-bottom: 2px dashed #a7b1b7;
+        cursor: pointer;
+        font-size: 20px;
+        font-weight: 700;
+        transition: all 0.3s ease-in-out;
+    }
+    .mobile-nav .menu ul li:hover {
+        background: #E5EEF2;
+        transform: scale(1.03);
+    }
+
+    /* Make menu visible when active */
+    .menu-active .menu {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Hide header elements on mobile */
+    header .location,
+    header .login {
+        display: none;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .top-bar {
+        display: none;
+    }
+
+    .mainsection {
+        height: 70vh;
+    }
+    .mainsection::before {
+        height: 70vh;
+    }
+    .news-item{
+        height: auto;
+    }
+    .news-item.active{
+        height: 100vh;
+    }
+    .nav-btn{
+        opacity: 0.6;
+    }
+    
+        .teams_title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+    
+        #team-selection h2 {
+            font-size: 1.5rem;
+            padding: 1rem;
+        }
+    
+        .teams-list {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+    
+        .team-item {
+            font-size: 1.2rem;
+            padding: 1.5rem;
+        }
+    
+        .team-item img {
+            width: 70px;
+            height: 70px;
+        }
+    
+        .team-content {
+            font-size: 1.2rem;
+        }
+        
+        
+
+    }
+
+@media (max-width: 1600px) {
+    .top-bar .leftlist {
+        padding: 1rem 2rem;
+        gap: 2rem;
+    }
+
+    .top-bar .leftlist i {
+        font-size: 2rem;
+    }
+
+    span {
+        font-size: 1.7rem;
+    }
+
+    .top-bar .rightlist {
+        gap: 2rem;
+        padding: 0 2rem;
+    }
+
+    .lang {
+        padding: 1rem;
+        font-size: 1.6rem;
+    }
+
+    .lang-btn {
+        gap: 5px;
+    }
+
+    .lang-menu {
+        padding: 0.5rem 0.7rem;
+        left: -6.5rem;
+    }
+
+    .lang-menu li {
+        padding: 0.5rem;
+    }
+
+    .lang-menu li a {
+        padding: 10px;
+    }
+
+    .top-bar .rightlist .searchbox {
+        width: 30rem;
+
+    }
+
+    .top-bar .rightlist .searchbox input {
+        padding: 0.5rem;
+        font-size: 1.5rem;
+    }
+
+    .top-bar .rightlist .searchbox input::placeholder {
+        font-size: 1.4rem;
+    }
+
+    .top-bar .rightlist .searchbox i {
+        font-size: 2rem;
+    }
+
+    header {
+        padding: 2rem 2rem 2rem 8rem;
+    }
+
+    .logo img {
+        width: 27rem;
+        height: 6.5rem;
+    }
+
+    header .location p {
+        font-size: 1.5rem;
+    }
+
+    header .login a button {
+        padding: 1rem 3.2rem;
+        font-size: 2rem;
+        font-weight: 600;
+
+    }
+
+    nav {
+        font-size: 1.7rem;
+    }
+
+    nav li a span {
+        font-size: 1rem;
+    }
+
+    nav ul li a {
+        padding: 1rem;
+    }
+
+    nav ul li.dropdown ul li a {
+        padding: 1rem;
+    }
+
+    
+}
+
+@media (max-width: 1430px) {
+    .top-bar .leftlist {
+        padding: 1rem 2rem;
+        gap: 2rem;
+    }
+
+    .top-bar .leftlist i {
+        font-size: 2rem;
+    }
+
+    span {
+        font-size: 1.3rem;
+    }
+
+    .top-bar .rightlist {
+        gap: 2rem;
+        padding: 0 2rem;
+    }
+
+    .lang {
+        padding: 1rem;
+        font-size: 1.6rem;
+    }
+
+    .lang-btn {
+        gap: 5px;
+    }
+
+    .lang-menu {
+        padding: 0.5rem 0.7rem;
+        left: -6.5rem;
+    }
+
+    .lang-menu li {
+        padding: 0.5rem;
+    }
+
+    .lang-menu li a {
+        padding: 10px;
+    }
+
+    .top-bar .rightlist .searchbox {
+        width: 30rem;
+
+    }
+
+    .top-bar .rightlist .searchbox input {
+        padding: 0.5rem;
+        font-size: 1.5rem;
+    }
+
+    .top-bar .rightlist .searchbox input::placeholder {
+        font-size: 1.4rem;
+    }
+
+    .top-bar .rightlist .searchbox i {
+        font-size: 2rem;
+    }
+
+    header {
+        padding: 2rem 2rem 2rem 8rem;
+    }
+
+    .logo img {
+        width: 27rem;
+        height: 6.5rem;
+    }
+
+    header .location p {
+        font-size: 1.5rem;
+    }
+
+    header .login a button {
+        padding: 1rem 3.2rem;
+        font-size: 2rem;
+        font-weight: 600;
+
+    }
+
+    nav {
+        font-size: 1.3rem;
+    }
+
+    nav li a span {
+        font-size: 1rem;
+    }
+
+    nav ul li a {
+        padding: 1rem;
+    }
+
+    nav ul li.dropdown ul li a {
+        padding: 1rem;
+    }
+
+    .mainsection p {
+        font-size: 8rem;
+        letter-spacing: 0.6rem;
+    }
+
+    .explor {
+        padding: 0.7rem 1.4rem;
+        font-size: 1.5rem;
+    }
+}
+
+
+@media (max-width:1280px) {
+    .top-bar .leftlist {
+        padding: 1rem 2rem;
+        gap: 1rem;
+    }
+
+    .top-bar .leftlist i {
+        font-size: 1.5rem;
+    }
+
+    span {
+        font-size: 1rem;
+    }
+
+    .top-bar .rightlist {
+        gap: 1rem;
+        padding: 0 1.5rem;
+    }
+
+    .lang {
+        padding: 0.5rem;
+        border-radius: 8px;
+        font-size: 1.2rem;
+    }
+
+    .lang-btn {
+        gap: 2px;
+    }
+
+    .lang-menu {
+        padding: 0.3rem 0.5rem;
+        /* Add some padding for better spacing */
+        left: -6.5rem;
+    }
+
+    .lang-menu li {
+        padding: 0.3rem;
+    }
+
+    .lang-menu li a {
+        padding: 5px;
+    }
+
+    .top-bar .rightlist .searchbox {
+        padding: 0.4rem 0.5rem;
+        width: 20rem;
+
+    }
+
+    .top-bar .rightlist .searchbox input {
+        padding: 0.3rem;
+        font-size: 1rem;
+    }
+
+    .top-bar .rightlist .searchbox input::placeholder {
+        color: #2c6893;
+        font-size: 1rem;
+    }
+
+    .top-bar .rightlist .searchbox i {
+        font-size: 1.5rem;
+    }
+
+    header {
+        padding: 1.5rem 1.5rem 1.5rem 6rem;
+    }
+
+    .logo img {
+        width: 24rem;
+        height: 6rem;
+    }
+
+    header .location p {
+        font-size: 1.2rem;
+    }
+
+    header .login a button {
+        padding: 1rem 3.2rem;
+        font-size: 1.6rem;
+        font-weight: 600;
+
+    }
+
+    nav {
+        font-size: 1.1rem;
+    }
+
+    nav li a span {
+        font-size: 0.7rem;
+    }
+
+    nav ul li a {
+        padding: 0.7rem;
+    }
+
+    nav ul li.dropdown ul li a {
+        padding: 0.6rem;
+    }
+
+    .mainsection p {
+        font-size: 7rem;
+        letter-spacing: 0.6rem;
+    }
+
+    .explor {
+        padding: 0.7rem 1.4rem;
+        font-size: 1.3rem;
+    }
+
+    .firstsection h1 {
+        font-size: 1.8rem;
+    }
+
+    .firstsection .Discription {
+        padding: 0.7rem 2rem;
+        font-size: 1.5rem;
+    }
+
+    .news-header {
+        font-size: 2rem;
+    }
+
+    .news-slider {
+        gap: 18px;
+    }
+
+    .nav-btn {
+        padding: 1rem;
+        font-size: 7px;
+    }
+
+    .labs-container {
+        gap: 2rem;
+
+        height: 23rem;
+        margin: auto;
+        padding: 0.625rem;
+    }
+
+    .labs-title {
+        font-size: 2rem;
+    }
+
+    .labs-item img {
+        width: 100%;
+        height: 12rem;
+        object-fit: cover;
+    }
+
+    .labs-content h3 {
+        font-size: 1.4rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .teams_title {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    #team-selection h2 {
+        font-size: 1rem;
+    }
+
+    .teams-list {
+        padding: 0.7rem;
+    }
+
+    .team-item {
+        padding: 1.5rem;
+        font-size: 1.3rem;
+    }
+
+    .team-item img {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+    }
+
+    .team-content {
+        text-align: left;
+        font-size: 1.2rem;
+    }
+
+    .action-button {
+        padding: 1.1rem 2.1rem;
+        font-size: 1.2rem;
+    }
+
+    .footer-top {
+        gap: 20px;
+        padding: 3rem;
+    }
+
+    .footer-column {
+        padding: 0rem 1.7rem 0rem 1.7rem;
+    }
+
+    .footer-column strong {
+
+        margin-bottom: 0.7rem;
+        font-size: 1.5rem;
+    }
+
+    .footer-column a {
+        font-size: 1rem;
+        margin-bottom: 5px;
+    }
+
+    .footer-bottom {
+        font-size: 1.2rem;
+    }
+
+    .footer-social a {
+        font-size: 1.5rem;
+    }
+
+    .team-members {
+        grid-template-columns: 1fr;
+    }
+    
+    .member-item {
+        width: 100%;
+    }
+    header .goback a button {
+        padding: 1rem 3.2rem;
+        font-size: 1.6rem;
+        font-weight: 600;
+
+    }
+    /*team page */
+    .team-page {
+        padding: 40px;
+    }
+
+    .team-general-about {
+        grid-template-columns: 1fr ;
+        gap: 40px;
+    }
+
+    .team-general, .team-description {
+        font-size: 1.5rem;
+    }
+
+    .team-general h3, .team-description h3 {
+        font-size: 2.5rem;
+    }  
+    
+    .team-general li {
+        font-size: 1.7rem;
+       
+    }
+
+    .team-general, .team-description, .team-goals, .team-members {
+        padding: 40px;
+    }
+    .team-goals h3 {
+        font-size: 2.5rem;
+        
+    }
+    .team-goals li {
+        font-size: 1.7rem;
+       
+    }
+    .team-members {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .photo {
+        width: 160px;
+        height: 160px;
+        margin-right: 20px;
+    }
+
+    .member-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .member-info {
+        text-align: center;
+    }
+
+    .more-details {
+        padding: 18px 40px;
+        font-size: 1rem;
+    }
+}
