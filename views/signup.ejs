@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LISI | Signup</title>
+  <link rel="stylesheet" href="loginsignupstyles.css">
+  <link rel="stylesheet" href="responsive.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  <script src="loginsignupmain.js"></script>
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <img src="Data/LOGO/LOGO MODERN1.png" alt="Logo">
+    </div>
+    <div class="goback">
+      <a href="/">
+        <p><i class='bx bx-left-top-arrow-circle'></i>GO BACK</p>
+      </a>
+    </div>
+  </header>
+
+  <div class="wrapper">
+    <div class="container">
+      <div class="login-section">
+        <h2>Signup</h2>
+        <form action="/signup/requests" method="POST">
+          <label for="firstname">First Name</label>
+          <input type="text" id="firstname" name="firstname" placeholder="Enter your first name" required>
+
+          <label for="lastname">Last Name</label>
+          <input type="text" id="lastname" name="lastname" placeholder="Enter your last name" required>
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+          <label for="user_id">Username</label>
+          <input type="text" id="username" name="username" placeholder="Choose a username" required>
+
+          <label for="user_id">Date Of Birth</label>
+          <input type="date" id="DateOfBirth" name="date_of_birth" required>
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Create a password" required>
+
+          <label for="gender">Gender</label>
+          <select id="gender" name="gender" required>
+            <option value="">Select gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+
+
+          <label for="confirm-password">Confirm Password</label>
+          <input type="password" id="confirm-password" placeholder="Confirm your password" required>
+
+          <button type="submit">Sign Up</button>
+          <a href="login.html" class="loginlink">Already have an account?<br>Click here to Login</a>
+        </form>
+      </div>
+      <div class="notes-section">
+        <h2>Notes</h2>
+        <p>
+          Signing up is only for team members. Your signup request will be reviewed by admins before approval.
+        </p>
+        <ul>
+          <li>Username must be unique and contain only letters, numbers, or underscores.</li>
+          <li>Password must be at least 8 characters long and include at least one uppercase letter, one number, and one
+            special character.</li>
+          <li>Email must be valid and active.</li>
+          <li>Once submitted, an admin will review your request before granting access.</li>
+        </ul>
+      </div>
+
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          document.body.classList.add("page-enter");
+        });
+      </script>
+</body>
+
+</html>

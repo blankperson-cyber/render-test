@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link href="/styleadmin.css" rel="stylesheet">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <title>LISI | Admin</title>
+  <script defer src="admin.js"></script>
+</head>
+
+<body>
+  <header>
+    <div class="admin">
+      <P>Admin</P>
+    </div>
+    <div class="admininfo">
+      <p id="adminUsername">LISIadmin</p>
+      <% admins.forEach(function(admin) { %>
+        <img src="/user/image/<%= admin.user_id %>" alt="Profile Picture">
+        <% }); %>
+    </div>
+    <i class='bx bx-menu'></i>
+  </header>
+
+  <aside>
+
+    <ul>
+      <li><i class='bx bx-menu'></i>Menu</li>
+      <li><a href="#managelabs"><i class='bx bxs-cube-alt'></i>Manage Labs</a></li>
+      <li><a href="#managenews"><i class='bx bx-news'></i></i>Manage News</a></li>
+      <li><a href="#managereq"><i class='bx bx-send'></i>Manage Signup Requests</a></li>
+      <li><a href="#manageusers"><i class='bx bx-user'></i>Manage users</a></li>
+      <li><a href="#manageteams"><i class='bx bx-group'></i>Manage Teams</a></li>
+      <li><a href="/login"><i class='bx bx-log-out'></i>Log Out</a> </li>
+    </ul>
+  </aside>
+
+  <!-- Manage Labs Page -->
+  <main>
+    <div class="content" id="managelabs">
+      <div class="mainheader">
+        <h1>Manage Labs</h1>
+        <button class="add" id="addLabBtn"><i class='bx bx-plus-circle'></i>Add New Lab</button>
+      </div>
+
+      <!-- add lab popup -->
+      <div id="addLabModal" class="modal">
+        <div class="modal-content">
+          <span class="close-btn" id="close">&times;</span>
+          <h2>Add New Lab</h2>
+          <form id="addLabForm" method="POST" action="/admin/labs" enctype="multipart/form-data">
+            <!-- Lab Name -->
+            <label for="labName">Lab Name:</label>
+            <input type="text" id="lab_name" name="lab_name" placeholder="lab Name" required>
+
+            <!-- Lab Image -->
+            <label for="labImage">Lab Image :</label>
+            <input type="file" id="lab_img" name="lab_img" required>
+
+            <!-- Date of Creation -->
+            <label for="creationDate">Date of Creation:</label>
+            <input type="date" id="lab_create_date" name="lab_create_date" required>
+
+            <!-- Description -->
+            <label for="labDescription">Description:</label>
+            <textarea id="lab_desc" name="lab_desc" rows="4"
+              placeholder="Join us for an exciting conference featuring world-renowned robotics experts."
+              required></textarea>
+
+            <button id="addlab_btn" type="submit">Add Lab</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Edit Lab Popup -->
+      <div id="editLabModal" class="modal">
+        <div class="modal-content">
+          <span class="close-btn" id="close">&times;</span>
+          <h2>Edit Lab</h2>
+          <form id="editLabForm" method="POST" action="/admin/labs/update" enctype="multipart/form-data">
+            <!--hidden input that sends the id-->
+            <input type="hidden" id="edit_lab_id" name="lab_id">
+            <!-- Lab Name -->
+            <label for="editLabName">Lab Name:</label>
+            <input type="text" id="edit_lab_name" name="lab_name" placeholder="Lab Name" required>
+
+            <!-- Current Lab Image -->
+            <label for="editLabImage">Current Lab Image:</label>
+            <img id="edit_lab_img_preview" src="" alt="Lab Image"
+              style="max-width: 200px; display: block; padding: 10px; ">
+
+            <!-- Lab Image -->
+            <label for="editLabImage">Change Lab Image:</label>
+            <input type="file" id="edit_lab_img">
+            <!-- Date of Creation -->
+            <label for="editCreationDate">Date of Creation:</label>
+            <input type="date" id="edit_lab_create_date" name="lab_create_date" required>
+
+            <!-- Description -->
+            <label for="editLabDescription">Description:</label>
+            <textarea id="edit_lab_desc" name="lab_desc" rows="4" placeholder="Description" required></textarea>
+
+            <button id="updatelab_btn" type="submit">Update Lab</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Delete Lab Popup -->
+      <div id="deleteLabModal" class="modal">
+        <div class="modal-content">
+          <h2>Are you sure you want to delete this lab?</h2>
+          <button id="confirmDeleteBtn">Yes, Delete</button>
+          <button id="cancelDeleteLabBtn">Cancel</button>
+        </div>
+      </div>
+
+      <!-- Lab Table -->
+      <table class="labs-table">
+        <thead>
+          <tr>
+            <th>Lab ID</th>
+            <th>Name</th>
+            <th>Image</th>
+            <th>Date Created</th>
+            <th>Description</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (labs && labs.length> 0) { %>
+            <% labs.forEach(lab=> { %>
+              <tr>
+                <td>
+                  <%= lab.lab_id %>
+                </td>
+                <td>
+                  <%= lab.lab_name %>
+                </td>
+                <td>
+                  <img src="/labs/image/<%= lab.lab_id %>" alt="Lab Image">
+
+                </td>
+                <td>
+                  <%= new Date(lab.lab_create_date).toLocaleDateString("en-GB") %>
+                </td>
+                <td>
+                  <%= lab.lab_desc %>
+                </td>
+                <td>
+                  <!-- Button for editing with data-lab-id -->
+                  <button id="edit" class="editlabs" data-lab-id="<%= lab.lab_id %>"><i
+                      class="bx bxs-edit"></i>Edit</button>
+                  <!-- Button for deleting with data-lab-id -->
+                  <button id="delete" class="delete" data-lab-id="<%= lab.lab_id %>"><i
+                      class="bx bxs-trash"></i>Delete</button>
+                </td>
+              </tr>
+              <% }); %>
+                <% } else { %>
+                  <tr>
+                    <td colspan="6">No labs available at this time.</td>
+                  </tr>
+                  <% } %>
+        </tbody>
+      </table>
+    </div>
+
+    <!--manage news-->
+    <div class="content" id="managenews">
+      <div class="mainheader">
+        <h1>Manage News</h1>
+        <button class="add" id="addNewsbtn"><i class='bx bx-plus-circle'></i>Add New News</button>
+      </div>
+
+      <!-- Add News Popup -->
+      <div id="addNewsModal" class="modal">
+        <div class="modal-content">
+          <span class="closenews-btn" id="close">&times;</span>
+          <h2>Add New News</h2>
+          <form id="addNewsForm" method="POST" action="/admin/news" enctype="multipart/form-data">
+            <label for="newsTitle">News Title:</label>
+            <input type="text" id="news_title" name="news_title" placeholder="News Title" required>
+
+            <label for="newsImage">News Image:</label>
+            <input type="file" id="news_img" name="news_img" required>
+
+            <label for="newsDate">Date:</label>
+            <input type="date" id="news_date" name="news_date" required>
+
+            <label for="newsDescription">Description:</label>
+            <textarea id="news_desc" name="news_desc" rows="4" placeholder="Enter news details here..."
+              required></textarea>
+
+            <button id="addNews_btn" type="submit">Add News</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Edit News Popup -->
+      <div id="editNewsModal" class="modal">
+        <div class="modal-content">
+          <span class="closenewsedit-btn" id="close">&times;</span>
+          <h2>Edit News</h2>
+          <form id="editNewsForm" method="POST" action="/admin/news/update" enctype="multipart/form-data">
+            <input type="hidden" id="edit_news_id" name="news_id">
+
+            <label for="editNewsTitle">News Title:</label>
+            <input type="text" id="edit_news_title" name="news_title" placeholder="News Title" required>
+
+            <label for="CurrentNewsImage">Current News Image:</label>
+            <img id="edit_news_img_preview" src="" alt="News Image"
+              style="max-width: 200px; display: block; padding: 10px; ">
+
+            <label for="editNewsImage">Change News Image:</label>
+            <input type="file" id="edit_news_img" name="news_img">
+
+            <label for="editNewsDate">Date:</label>
+            <input type="date" id="edit_news_date" name="news_date" required>
+
+            <label for="editNewsDescription">Description:</label>
+            <textarea id="edit_news_desc" name="news_desc" rows="4" placeholder="Description" required></textarea>
+
+            <button id="updateNews_btn" type="submit">Update News</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Delete News Popup -->
+      <div id="deleteNewsModal" class="modal">
+        <div class="modal-content">
+          <h2>Are you sure you want to delete this news?</h2>
+          <button id="confirmDeleteNewsBtn">Yes, Delete</button>
+          <button id="cancelDeleteNewsBtn">Cancel</button>
+        </div>
+      </div>
+
+      <!-- News Table -->
+      <table class="news-table">
+        <thead>
+          <tr>
+            <th>News ID</th>
+            <th>Title</th>
+            <th>Image</th>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (news && news.length> 0) { %>
+            <% news.forEach(item=> { %>
+              <tr>
+                <td>
+                  <%= item.news_id %>
+                </td>
+                <td>
+                  <%= item.news_title %>
+                </td>
+                <td> <img src="/news/image/<%= item.news_id %>" alt="News Image"></td>
+                <td>
+                  <%= new Date(item.news_date).toLocaleDateString("en-GB") %>
+                </td>
+                <td>
+                  <%= item.news_desc %>
+                </td>
+                <td>
+                  <button id="edit" class="editnews" data-news-id="<%= item.news_id %>"><i
+                      class="bx bxs-edit"></i>Edit</button>
+                  <button id="delete" class="deletenews" data-news-id="<%= item.news_id %>"><i
+                      class="bx bxs-trash"></i>Delete</button>
+                </td>
+              </tr>
+              <% }); %>
+                <% } else { %>
+                  <tr>
+                    <td colspan="6">No news available at this time.</td>
+                  </tr>
+                  <% } %>
+        </tbody>
+      </table>
+    </div>
+
+
+
+
+    <!-- Manage requests-->
+    <div class="content" id="managereq">
+      <div class="mainheader">
+        <h1>Manage Signup Requests</h1>
+      </div>
+
+      <!-- delete request Popup -->
+      <div id="deleteRequestsModal" class="modal">
+        <div class="modal-content">
+          <h2>Are you sure you want to delete this request?</h2>
+          <button id="confirmDeleterequestsBtn">Yes, delete</button>
+          <button id="cancelDeleteRequestsBtn">Cancel</button>
+        </div>
+      </div>
+      <!-- Requests Table -->
+      <table class="news-table">
+        <thead>
+          <tr>
+            <th>Request ID</th>
+            <th>Username</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Date of Birth</th>
+            <th>Password</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (requests && requests.length> 0) { %>
+            <% requests.forEach(item=> { %>
+              <tr>
+                <td>
+                  <%= item.request_id %>
+                </td>
+                <td>
+                  <%= "******" %>
+                </td>
+                <td>
+                  <%= item.firstname %>
+                </td>
+                <td>
+                  <%= item.lastname %>
+                </td>
+                <td class="truncate">
+                  <%= item.email %>
+                </td>
+                <td>
+                  <%= new Date(item.date_of_birth).toLocaleDateString("en-GB") %>
+                </td>
+                <td>
+                  <%= "******" %>
+                </td>
+                <td id="request-status-">
+                  <%= item.request_status %>
+                </td>
+                <td>
+                  <button id="acceptRequest" data-request-id="<%= item.request_id %>">
+                    <i class="bx bx-check"></i> Accept
+                  </button>
+
+                  <button id="rejectRequest" data-request-id="<%= item.request_id %>">
+                    <i class="bx bx-x"></i> Reject
+                  </button>
+                  <button id="delete" class="deleteRequest" data-request-id="<%= item.request_id %>">
+                    <i class="bx bxs-trash"></i> Delete
+                  </button>
+                </td>
+              </tr>
+              <% }); %>
+                <% } else { %>
+                  <tr>
+                    <td colspan="8">No signup requests at this time.</td>
+                  </tr>
+                  <% } %>
+        </tbody>
+      </table>
+    </div>
+
+
+
+
+
+
+
+    <!-- Manage users-->
+    <div class="content" id="manageusers">
+      <div class="mainheader">
+        <h1>Manage Users</h1>
+        <button class="add" id="addUserbtn"><i class='bx bx-plus-circle'></i>Add New Users</button>
+
+      </div>
+
+      <!-- delete user Popup -->
+      <div id="deleteUserModal" class="modal">
+        <div class="modal-content">
+          <h2>Are you sure you want to delete this user?</h2>
+          <button id="confirmDeleteuserBtn">Yes, delete</button>
+          <button id="cancelDeleteuserBtn">Cancel</button>
+        </div>
+      </div>
+      <!-- Users Table -->
+      <table>
+        <thead>
+          <tr>
+            <th>User ID</th>
+            <th>Image</th>
+            <th>Username</th>
+            <th>Role</th>
+            <th>Password</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% users.forEach(user=> { %>
+            <tr>
+              <td>
+                <%= user.user_id %>
+              </td>
+              <td>
+                <img src="/user/image/<%= user.user_id %>" alt="Profile Picture">
+              </td>
+
+              <% let foundUser=admins.find(a=> a.user_id === user.user_id) ||
+                members.find(m => m.user_id === user.user_id);
+                let role = admins.find(a => a.user_id === user.user_id) ? 'Admin' :
+                members.find(m => m.user_id === user.user_id) ? 'Member' : 'User';
+
+                let badgeClass = role === 'Admin' ? 'admin-badge' : role === 'Member' ? 'member-badge' : '';
+                %>
+
+                <td>
+                  <%= foundUser ? "******" : 'Unknown' %>
+                </td>
+                <td><span class="<%= badgeClass %>">
+                    <%= role %>
+                  </span></td>
+                <td>
+                  <%= "******" %>
+                </td>
+                <td><button id="delete" class="deleteuserbtn"><i class="bx bxs-trash"></i> Delete</button></td>
+            </tr>
+            <% }); %>
+
+        </tbody>
+      </table>
+    </div>
+
+
+    <!-- Manage teams-->
+    <div class="content" id="manageteams">
+      <div class="mainheader">
+        <h1>Manage Teams</h1>
+        <button class="add" id="addteamBtn"><i class='bx bx-plus-circle'></i>Add New Team</button>
+        <!-- Added ID here -->
+
+      </div>
+
+      <!-- Add Team Popup -->
+      <div id="addTeamModal" class="modal">
+        <div class="modal-content">
+          <span class="clos-btn" id="close">&times;</span>
+          <h2>Add New Team</h2>
+          <form id="addTeamForm" method="POST" action="/admin/teams" enctype="multipart/form-data">
+            <label for="teamTitle">Team Title:</label>
+            <input type="text" id="team_title" name="team_title" placeholder="Team Title" required>
+
+            <label for="teamImage">Team Image:</label>
+            <input type="file" id="team_img" name="team_img" required>
+
+            <label for="teamLeader">Assign Leadership :</label>
+            <input type="text" id="team_leader" name="team_leader_id" placeholder="Leader ID" required>
+
+            <label for="teamLocation">Location:</label>
+            <input type="text" id="team_location" name="team_location" placeholder="Location" required>
+
+            <label for="teamFounded">Foundation Date:</label>
+            <input type="date" id="team_founded" name="team_creat_date" required>
+
+            <label for="teamDescription">Description:</label>
+            <textarea id="team_desc" name="team_desc" rows="4" placeholder="Enter team details here..."
+              required></textarea>
+
+            <label for="teamField">Field:</label>
+            <input type="text" id="team_field" name="team_field" placeholder="Field of Research" required>
+
+            <label>Research Areas:</label>
+            <div id="researchFields">
+              <input type="text" name="team_research[]" placeholder="Enter research area" required>
+            </div>
+            <button type="button" id="addResearchField">Add Research Field</button>
+
+            <label>Team Members:</label>
+            <div id="teamMembers">
+              <input type="text" name="team_members[]" placeholder="Enter member ID" required>
+            </div>
+            <button type="button" id="addMember">Add Member</button>
+
+            <button id="addTeam_btn" type="submit">Add Team</button>
+          </form>
+        </div>
+      </div>
+
+
+
+
+      <!--Team members-->
+      <div id="MemberTeamModal" class="modal">
+        <div class="modal-content">
+          <span class="close-btn" id="close">&times;</span>
+          <h2>Manage Team Members</h2>
+
+          <!-- Team Members Table -->
+          <table>
+            <thead>
+              <tr>
+                <th>Member ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Image</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="members-table-body">
+              <% if (teammembers && teammembers.length> 0) { %>
+                <% teammembers.forEach(member=> { %>
+                  <% if (member.team_id==teamId) { %>
+                    <tr>
+                      <td>
+                        <%= member.user_id %>
+                      </td>
+                      <td>
+                        <%= member.firstname %>
+                      </td>
+                      <td>
+                        <%= member.lastname %>
+                      </td>
+                      <td>
+                        <% if (member.image) { %>
+                          <img src="/user/image/<%= member.user_id %>"
+                            alt="<%= member.firstname %> <%= member.lastname %>" style="max-width: 50px; height: auto;">
+                          <% } else { %>
+                            No Image
+                            <% } %>
+                      </td>
+
+                      <td>
+                        <form action="/admin/teams/<%= teamId %>/members/<%= member.user_id %>/delete" method="POST"
+                          style="display:inline;">
+                          <button type="submit" class="delete-member-btn">Delete</button>
+                        </form>
+                      </td>
+                    </tr>
+                    <% } %>
+                      <% }) %>
+                        <% } else { %>
+                          <tr>
+                            <td colspan="5">No members available for this team.</td>
+                          </tr>
+                          <% } %>
+            </tbody>
+          </table>
+
+          <!-- Add Member Button -->
+          <div class="addmembers">
+            <button id="addMemberintoteam">Add Member</button>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+      <!--team details -->
+      <div id="viewTeamdetailsModal" class="modal">
+        <div class="modal-content">
+          <span class="close-btn" id="close">&times;</span>
+          <form id="teamForm" method="POST" action="/admin/teams/update" enctype="multipart/form-data">
+            <h2>Team Details</h2>
+
+            <input type="text" id="edit_team_id" name="team_id" hidden>
+
+            <label for="currentteamimg">Current Team Image:</label>
+            <img id="edit_team_img_preview" src="" alt="Teams Image"
+              style="max-width: 200px; display: block; padding: 10px; ">
+
+            <label for="changeteamimg">Change Team Image:</label>
+            <input type="file" id="edit_team_img" name="team_img">
+
+            <label for="team_title">Team Title:</label>
+            <input type="text" id="edit_team_title" name="team_title">
+
+            <label for="team_leader">Leader ID:</label>
+            <input type="text" id="edit_team_leader" name="team_leader_id">
+
+            <label for="team_location">Location:</label>
+            <input type="text" id="edit_team_location" name="team_location">
+
+            <label for="team_founded">Foundation Date:</label>
+            <input type="date" id="edit_team_founded" name="team_creat_date">
+
+            <label for="team_desc">Description:</label>
+            <textarea id="edit_team_desc" name="team_desc"></textarea>
+
+            <label for="team_field">Field:</label>
+            <input type="text" id="edit_team_field" name="team_field">
+
+
+            <button type="submit">Update</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Add Member Modal -->
+      <div id="addMemberModal" class="modal">
+        <div class="modal-content">
+          <span class="close-btn" id="closeAddMemberModal" id="close">&times;</span>
+          <h2>Add New Member</h2>
+
+          <form id="addMemberForm" method="POST" action="/admin/teams/:teamId/members">
+            <input type="hidden" name="team_id" id="team_id_hidden">
+            <label for="memberId">Member ID:</label>
+            <input type="text" id="memberId" name="member_id" placeholder="Enter member ID" required>
+
+            <label for="memberRole">Role:</label>
+            <input type="text" id="memberRole" name="member_role" placeholder="e.g. Developer, Researcher" required>
+
+            <button type="submit" id="addMemberSubmit">Add Member</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Research Areas Modal -->
+      <div id="TeamResearchAreasModal" class="modal" style="display: none;">
+        <div class="modal-content">
+          <span class="close"
+            onclick="document.getElementById('TeamResearchAreasModal').style.display='none'">&times;</span>
+          <h2>Research Areas</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Research Area</th>
+                <th>Team ID</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="team-research-areas-table-body">
+            </tbody>
+          </table>
+          <button id="addResearchAreaBtn">Add Research Area</button>
+        </div>
+      </div>
+
+      <!-- Add Research Area Modal -->
+      <div id="addResearchAreaModal" class="modal" style="display: none;">
+        <div class="modal-content">
+          <span class="close"
+            onclick="document.getElementById('addResearchAreaModal').style.display='none'">&times;</span>
+          <h2>Add Research Area</h2>
+          <form id="addResearchAreaForm" method="POST">
+            <input type="hidden" name="team_id" id="team_id_hidden">
+            <input type="text" name="research_area" placeholder="Research Area Name" required>
+            <button type="submit">Add</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Delete Team Popup -->
+      <div id="deleteTeamModal" class="modal">
+        <div class="modal-content">
+          <h2>Are you sure you want to delete this Team?</h2>
+          <button id="confirmDeleteTeamBtn">Yes, Delete</button>
+          <button id="cancelDeleteTeamBtn">Cancel</button>
+        </div>
+      </div>
+
+      <!-- Teams Table -->
+      <table class="teams-table">
+        <thead>
+          <tr>
+            <th>Team ID</th>
+            <th>Team Name</th>
+            <th>Leader</th>
+            <th>Founded</th>
+            <th>Location</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (teams && teams.length> 0) { %>
+            <% teams.forEach(team=> { %>
+              <tr>
+                <td>
+                  <%= team.team_id %>
+                </td>
+                <td>
+                  <%= team.team_title %>
+                </td>
+                <td>
+                  <%= team.team_leader_id %>
+                </td>
+                <td>
+                  <%= new Date(team.team_creat_date).toLocaleDateString("en-GB") %>
+                </td>
+                <td>
+                  <%= team.team_location %>
+                </td>
+                <td>
+                  <button id="edit" class="view-team-btn" data-team-id="<%= team.team_id %>"
+                    data-team-title="<%= team.team_title %>" data-team-leader="<%= team.team_leader_id %>"
+                    data-team-location="<%= team.team_location %>"
+                    data-team-founded="<%= new Date(team.team_creat_date).toISOString().split('T')[0] %>"
+                    data-team-desc="<%= team.team_desc %>" data-team-field="<%= team.team_field %>"
+                    data-team-img="<%= team.team_img %>">
+                    <i class='bx bx-show'></i> View More
+                  </button>
+
+                  <button type="button" class="show-members-btn" data-team-id="<%= team.team_id %>">
+                    <i class='bx bxs-group'></i> Members
+                  </button>
+                  <button type="button" class="show-research-areas-btn" data-team-id="<%= team.team_id %>"><i
+                      class='bx bxs-area'></i> Research
+                    Areas</button>
+
+                  <button id="delete" type="button" class="deleteTeamBtn" data-team-id="<%= team.team_id %>">
+                    <i class="bx bxs-trash"></i> Delete
+                  </button>
+
+                </td>
+              </tr>
+              <% }); %>
+                <% } else { %>
+                  <tr>
+                    <td colspan="6">No teams available at this time.</td>
+                  </tr>
+                  <% } %>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+
+
+
+
+
+</body>
+
+</html>

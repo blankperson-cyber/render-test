@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LISI | Home</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/responsive.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=widgets" />
+    <link rel="preload" as="Image" href="Data/other/main.jpg">
+</head>
+
+<body>
+    <!--Loading Screen-->
+    <div id="loading-screen">
+        <div class="loader"></div>
+    </div>
+    <!--Top Bar-->
+    <div class="top-bar">
+        <div class="leftlist">
+            <span><i class='bx bxs-envelope'></i> LISIhelp@gmail.com</span>
+            <span><i class='bx bxl-whatsapp'></i> +213315462899</span>
+            <a href="https://www.facebook.com/profile.php?id=61574737205647&locale=en_EN" target="_blank" title="LISI facebook account"><i class='bx bxl-facebook'></i></a>
+            <a href="#"><i class='bx bxl-instagram-alt'></i></a>
+            <a href="#"><i class='bx bxl-vk'></i></a>
+        </div>
+        <div class="rightlist">
+            <!-- Language Dropdown -->
+            <div class="lang">
+                <label class="lang-btn">Language <i class='bx bx-chevron-down'></i></label>
+                <ul class="lang-menu">
+                    <li><a href="#">English</a></li>
+                    <li><a href="#">Arabic</a></li>
+                    <li><a href="#">Français</a></li>
+                </ul>
+            </div>
+            <!-- Search Box -->
+            <div class="searchbox">
+                <input type="search" id="searchInput" placeholder="Search For Anything...">
+                <i class='bx bx-search-alt'></i>
+            </div>
+            <div id="searchResults" class="search-results"></div>
+
+        </div>
+    </div>
+    <!--Header Menu-->
+    <header>
+        <div class="logo">
+            <a href="/"><img src="Data/LOGO/LOGO MODERN1.png"></a>
+        </div>
+        <div class="location">
+            <p>LISI Laboratory <br>N79, MILA</br></p>
+        </div>
+        <div class="login">
+            <a href="login" class="loginlink"> <button>LOGIN <i class='bx bx-user-circle'></i></button></a>
+        </div>
+
+        <div class="mobile-nav">
+            <div class="menu-open-close">
+                <i id="menuicon" class='bx bx-menu-alt-right'></i>
+            </div>
+            <div class="menu" id="menu">
+                <i id="xicon" class='bx bx-x'></i>
+                <ul>
+                    <li><a href="/"><i class='bx bx-arrow-back'></i> HOME</a></li>
+                    <li><a href="about"><i class='bx bx-arrow-back'></i> ABOUT</a></li>
+                    <li><a href="#teams-container"><i class='bx bx-arrow-back'></i> TEAMS</a></li>
+                    <li><a href="dissemination.html"><i class='bx bx-arrow-back'></i> DISSEMINATION</a></li>
+                    <li><a href="conventions.html"><i class='bx bx-arrow-back'></i> CONVENTIONS</a></li>
+                    <li><a href="activities.html"><i class='bx bx-arrow-back'></i> OTHER ACTIVITIES</a></li>
+                    <li><a href="#"><i class='bx bx-search'></i> Search</a></li>
+                    <li><a href="#"><i class='bx bx-globe'></i> Language</a></li>
+                    <li><a href="/login"><i class='bx bx-log-in'></i> LOGIN</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <!--Navigation menu-->
+    <nav>
+        <ul class="flist">
+            <li><a href="/">Home</a></li>
+            <li><a href="about">About</a></li>
+            <li class="dropdown">
+                <a href="#teams-container">Teams <span>▼</span></a>
+                <ul class="dropdown-menu">
+                    <% teams.forEach(team=> { %>
+                        <li class="dropdownsub">
+                            <a href="/team/<%= encodeURIComponent(team.team_title) %>">
+                                <%= team.team_title %><span>►</span>
+                            </a>
+                            <ul class="dropdown-submenu">
+                                <li><a
+                                        href="/team/<%= encodeURIComponent(team.team_title) %>#team-general">Description</a>
+                                </li>
+                                <li><a href="/team/<%= encodeURIComponent(team.team_title) %>#team-goals">Goals</a>
+                                </li>
+                                <li><a href="/team/<%= encodeURIComponent(team.team_title) %>#team-members">Members</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <% }); %>
+                </ul>
+            </li>
+
+            <li class="dropdown">
+                <a href="#">Dissemination <span>▼</span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Conferences</a></li>
+                    <li><a href="#">Journals</a></li>
+                    <li><a href="#">Books</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#">Conventions <span>▼</span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">National</a></li>
+                    <li><a href="#">InterNational</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#">Other Activities<span>▼</span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">National Couf</a></li>
+                    <li><a href="#">InterNational Couf</a></li>
+                </ul>
+            </li>
+            <li class="dropdown"><a href="#">Quick Access</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#firstsection"><i class='bx bxs-book-bookmark'></i> Discription </a></li>
+                    <li><a href="#news-section"><i class='bx bx-news'></i> News</a></li>
+                    <li><a href="#current-labs"><i class='bx bxs-component'></i> Labs</a></li>
+                    <li><a href="#teams-container"><i class='bx bxs-group'></i> Teams</a></li>
+                    <li><a href="#footer"><i class='bx bxs-contact'></i> Contacts</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div class="mainsection">
+        <p>
+            Welcome To LISI
+        </p>
+        <div class="explor">
+            <label>Explor More <i class='bx bx-down-arrow-circle'></i></label>
+        </div>
+    </div>
+
+    <div class="firstsection">
+        <div class="title">
+            <h1>Laboratory of Intelligent Systems and Informatics</h1>
+        </div>
+        <div class="Discription" id="firstsection">
+            <p>LISI is a research lab at Centre Universitaire Abdelhafid Boussouf de Mila, dedicated to AI, IoT, and
+                Optimization. Our teams focus on intelligent systems, machine learning, network security, and smart
+                technologies, driving innovation in fields like healthcare, agriculture, and smart cities through
+                cutting-edge research and development.</p>
+        </div>
+
+    </div>
+
+    <div class="news-section">
+        <div id="news" class="news-header" data-search>Latest News</div>
+        <div class="news-container">
+            <button class="nav-btn prev-btn"><i class='bx bxs-left-arrow'></i></button>
+            <div class="news-wrapper">
+                <div class="news-slider">
+                    <% news.forEach((item, index)=> { %>
+                        <article class="news-item" data-index="<%= index %>">
+                            <img src="/news/image/<%= item.news_id %>" alt="News Image">
+                            <h3 data-search>
+                                <%= item.news_title %>
+                            </h3>
+                            <p>
+                                <%= new Date(item.news_date).toLocaleDateString("en-GB") %>
+
+                            </p>
+                            <div class="news-details">
+                                <%= item.news_desc %>
+                            </div>
+                        </article>
+                        <% }); %>
+                </div>
+            </div>
+            <button class="nav-btn next-btn"><i class='bx bxs-right-arrow'></i></button>
+        </div>
+    </div>
+
+
+
+    <div id="current-labs" class="labs-section" data-search>
+        <h2 class="labs-title">Our Labs</h2>
+        <% if (labs && labs.length> 0) { %>
+            <% for (let i=0; i < labs.length; i +=2) { %>
+                <div class="labs-container">
+                    <article class="labs-item">
+                        <img src="/labs/image/<%= labs[i].lab_id %>" alt="Lab <%= labs[i].lab_id %> Image">
+
+                        <div class="labs-content">
+                            <h3>
+                                <%= labs[i].lab_name %>
+                            </h3>
+                            <p class="labs-date">
+                                <% if (labs[i].lab_create_date instanceof Date) { %>
+                                    <%= labs[i].lab_create_date.toISOString().split('T')[0] %>
+                                        <% } else { %>
+                                            <%= labs[i].lab_create_date %>
+                                                <% } %>
+                            </p>
+                            <p>
+                                <%= labs[i].lab_desc %>
+                            </p>
+                        </div>
+                    </article>
+
+                    <% if (labs[i + 1]) { %>
+                        <article class="labs-item">
+                            <img src="/labs/image/<%= labs[i+1].lab_id %>" alt="Lab <%= labs[i+1].lab_id %> Image">
+                            <div class="labs-content">
+                                <h3>
+                                    <%= labs[i+1].lab_name %>
+                                </h3>
+                                <p class="labs-date">
+                                    <%= new Date(labs[i+1].lab_create_date).toLocaleDateString("en-GB") %>
+                                </p>
+                                <p>
+                                    <%= labs[i+1].lab_desc %>
+                                </p>
+                            </div>
+                        </article>
+                        <% } %>
+                </div>
+                <% } %>
+                    <% } else { %>
+                        <p>No labs available at this time.</p>
+                        <% } %>
+                    </div>
+
+
+    <div id="teams-container" class="teams-container" data-search>
+        <div class="teams_title">Our Teams</div>
+        <div class="team-box" id="team-container">
+            <div id="team-selection">
+                <div class="teams-list">
+                    <% teams.forEach(team=> { %>
+                        <label class="team-item">
+                            <input type="radio" name="team" value="<%= team.value %>" data-name="<%= team.team_title %>"
+                                data-date="<%= team.team_creat_date %>" data-description="<%= team.team_desc %>"
+                                data-link="<%= team.link %>">
+                            <img src="/team/image/<%= team.team_id %>" alt="Team Image">
+                            <div class="team-content">
+                                <span class="team-name">
+                                    <%= team.team_title %>
+                                </span>
+                                <p class="team-date">Created on: <%= new
+                                        Date(team.team_creat_date).toLocaleDateString('en-US', { year: 'numeric' ,
+                                        month: 'long' , day: 'numeric' }) %>
+                                </p>
+                            </div>
+                        </label>
+                        <% }); %>
+                </div>
+            </div>
+            <button class="action-button" id="confirm-btn" onclick="showTeamInfo()" title="Select a team first" disabled>Show Details</button>
+        </div>
+    </div>
+    <!-- FOOTER -->
+    <footer class="footer_container" id="footer">
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-top">
+                    <div class="whitelogo">
+                        <img src="Data/LOGO/logowhite.png" alt="University Labs Logo">
+                    </div>
+                    <div class="footer-columns">
+                        <div class="footer-column">
+                            <strong>Labs</strong>
+                            <a href="#">AI Lab</a>
+                            <a href="#">Robotics Lab</a>
+                            <a href="#">Cybersecurity Lab</a>
+                            <a href="#">Data Science Lab</a>
+                        </div>
+                        <div class="footer-column">
+                            <strong>Resources</strong>
+                            <a href="#">Publications</a>
+                            <a href="#">Projects</a>
+                            <a href="#">Collaborations</a>
+                            <a href="#">Events</a>
+                        </div>
+                        <div class="footer-column">
+                            <strong>Support</strong>
+                            <a href="#">Contact</a>
+                            <a href="#">Help Center</a>
+                            <a href="#">Community</a>
+                        </div>
+                        <div class="footer-column">
+                            <strong>University</strong>
+                            <a href="#">About</a>
+                            <a href="#">News</a>
+                            <a href="#">Careers</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2025 University Labs. All rights reserved.</span>
+                <div class="footer-links">
+                    <a href="#">Terms</a> | <a href="#">Privacy</a>
+                </div>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/profile.php?id=61574737205647&locale=en_EN" target="_blank" title="LISI facebook account"><i class='bx bxl-facebook'></i></a>
+                    <a href="#"><i class='bx bxl-instagram-alt'></i></a>
+                    <a href="#"><i class='bx bxl-vk'></i></a>
+                </div>
+            </div>
+        </footer>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="main.js"></script>
+
+
+</body>
+
+</html>

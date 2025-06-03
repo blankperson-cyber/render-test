@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LISI | Login</title>
+  <link rel="stylesheet" href="loginsignupstyles.css">
+  <link rel="stylesheet" href="responsive.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@100..900&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+        <img src="Data/LOGO/LOGO MODERN1.png">
+    </div>
+    
+    <div class="goback">
+      <a href="/"><p><i class='bx bx-left-top-arrow-circle'></i>GO BACK</p></a>
+    </div>
+
+</header>
+  
+  <div class="wrapper">
+    <div class="container">
+      <div class="login-section">
+        <h2>Login</h2>
+        <form action="/login/users" method="POST" id="loginForm">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" placeholder="Enter your username" required>
+          
+          <label for="password">Password</label>
+          <input type="password" name="password" id="password" placeholder="Enter your password" required>
+          
+          <button type="submit">Sign In</button>
+          <a href="signup.html" class="signup-link">Don't have an account?<br>click here to Register</a>
+        </form>
+      </div>
+      <div class="notes-section">
+        <h2>Login Guidelines</h2>
+        <p>
+            Please follow these guidelines to ensure a smooth and secure login experience.
+        </p>
+        <ul>
+            <li>Your username must be unique and registered in the system.</li>
+            <li>Your password should be at least 8 characters long and contain a mix of letters, numbers, and symbols.</li>
+            <li>Do not share your login credentials with anyone.</li>
+            <li>If you forget your password, use the "Forgot Password" option to reset it.</li>
+            <li>For security reasons, log out when using a public or shared computer.</li>
+        </ul>
+    </div>
+    
+    </div>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.body.classList.add("page-enter");
+    });
+    </script>
+      <script src="loginsignupmain.js"></script>
+
+</body>
+</html>

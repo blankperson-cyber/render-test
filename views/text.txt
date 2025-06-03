@@ -1,0 +1,5 @@
+npm init -y
+npm install express pg body-parser ejs dotenv
+
+
+this version is horrible, so i want a new form that lets the user add a team like in the form  but i want to be able to add more reaserh areas not just one, and when adding a member i want the user to be ablr to choose the team then add a member 

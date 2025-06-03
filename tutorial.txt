@@ -1,0 +1,24 @@
+1) setting up the server: put the html files(.ejs) in a "views" floder , and auther files in "public " files
+
+2) creat an .env file
+
+3)fill it up
+
+4) open cmd and go to your folder (NEVER CLOSE IT)
+
+5) run this command npm init -y
+
+6) RUN This command :  npm install express pg body-parser ejs dotenv bcrypt multer
+
+7) creat the server(app).js and set it up
+
+8) go back to cmd and run this command : node server.js  , ull see server running at3000 and connect 2025...
+
+9) go to localhost/index   (without .ejs)
+
+
+
+
+
+
+
